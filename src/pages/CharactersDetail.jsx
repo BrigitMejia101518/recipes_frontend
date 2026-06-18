@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { data, useParams } from "react-router-dom";
+import { data, useParams, useNavigate, Navigate } from "react-router-dom";
 
 function CharactersDetail() {
     const { id } = useParams();
+    const navigate = useNavigate();
+
     const [character, setCharacter] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -30,10 +32,12 @@ function CharactersDetail() {
 
     return (
         <div>
+            
             <h2>{character.name}</h2>
             <img src={character.image} alt={character.name}/>
             <p>Estado: {character.status}</p>
             <p>Especie: {character.species}</p>
+            <button onClick={() => navigate(-1)}>🔙Volver</button>
         </div>
     )
 }
