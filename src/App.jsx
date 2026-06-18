@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Characters } from './pages/Characters';
+import { Cards } from './components/Cards';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
     <div>
       <nav>
         <Link to="/">Inicio</ Link> | 
-        <Link to="/Characters">Personajes</ Link> | {" "}
+        <Link to="/Characters">Recipes</ Link> | {" "}
         <Link to="/About">Acerca de</ Link>
       </nav>
       
