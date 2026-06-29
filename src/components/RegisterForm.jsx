@@ -68,44 +68,45 @@ async function sendRegister() {
 
 
 return (
-    <form onSubmit={handleSubmit}>
-        <div>
-            <h2>Crear Cuenta</h2>
-            <div>
-                <label>Usarname</label>
+    <form onSubmit={handleSubmit} className="mx-auto flex max-w-md flex-col gap-4 p-6 bg-white rounded-lg border border-gray-200 shadow-md mt-10">
+            <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Crear Cuenta</h2>
+            <div className="flex flex-col gap-1">
+                <label className="text-xl text-gray-700 font-medium">Usarname</label>
                 <input 
                     onChange={handleChange}
                     type="text"
                     name="username"
                     value={data.username}
+                    className="rounded border border-gray-300 px-3 py-2 hover:border-purple-500 focus:outline-purple-500 transition duration-200"
                 />
-                {errors.name && <span>{errors.name}</span>}
+                {errors.name && <span className="text-sm text-red-600">{errors.name}</span>}
             </div>
-            <div>
-                <label>Email</label>
+            <div className="flex flex-col gap-1">
+                <label className="text-xl text-gray-700 font-medium">Email</label>
                 <input
                     onChange={handleChange}
                     type="email"
                     name="email"
                     value={data.email}
+                    className="rounded border border-gray-300 px-3 py-2 hover:border-purple-500 focus:outline-purple-500 transition duration-200"
                 />
-                {errors.email && <span>{errors.email}</span>}
+                {errors.email && <span className="text-sm text-red-600">{errors.email}</span>}
             </div>
-            <div>
-                <label>Password</label>
+            <div className="flex flex-col gap-1">
+                <label className="text-xl text-gray-700 font-medium">Password</label>
                 <input
                     onChange={handleChange}
                     type="password"
                     name="password"
                     value={data.password}
+                    className="rounded border border-gray-300 px-3 py-2v hover:border-purple-500 focus:outline-purple-500 transition duration-200"
                 />
-                {errors.password && <span>{errors.password}</span>}
+                {errors.password && <span className="text-sm text-red-600">{errors.password}</span>}
             </div>
 
-            <button type="submit">Enviar</button>
-            {res && <p>Resgistro completado con exito en el Localhost</p>}
-            {errors.api && <p>{errors.api}</p>}
-        </div>
+            <button type="submit" className="rounded bg-purple-600 px-4 py-2 mt-4 font-semibold text-white hover:bg-purple-700 transition duration-300 cursor-pointer shadow-sm">Enviar</button>
+            {res && <p className="-text-sm text-center text-green-600 font-semibold mt-2">✅ Resgistro completado con exito en el Localhost</p>}
+            {errors.api && <p className="text-sm text-center text-red-600 font-medium mt-2">❌{errors.api}</p>}
     </form>
 );
 }
