@@ -6,7 +6,7 @@ import { Characters } from './components/Characters';
 import { CharactersDetail } from './pages/CharactersDetail';
 import { Layout } from './pages/Layout';
 import { SearchField } from './components/counter';
-import { ThemeContext } from './context.jsx/ThemeCounter';
+import { ThemeContext } from './context/ThemeCounter';
 import { useState } from 'react';
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';

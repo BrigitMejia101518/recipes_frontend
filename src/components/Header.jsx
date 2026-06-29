@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../context.jsx/ThemeCounter";
+import { ThemeContext } from "../context/ThemeCounter";
 
 function Header() {
     const { theme } = useContext(ThemeContext)

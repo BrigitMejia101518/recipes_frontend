@@ -12,7 +12,7 @@ function Characters() {
             try {
                 setIsLoading(true)
                 setError(null)
-                const response = await fetch(`http://localhost:3000/api/Recipe?page=${page}`)
+                const response = await fetch(`http://localhost:3000/api/recipe?page=${page}`)
                 if (!response.ok) throw new Error("No se pudo cargar la receta")
                 const data = await response.json()
                 setCharacters(data.results)

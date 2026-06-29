@@ -3,11 +3,16 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+// 1. Importamos el proveedor de autenticación que acabamos de crear
+import { AuthProvider } from './context/AuthContext'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
+  <StrictMode>
+    <BrowserRouter>
+      {/* 2. Envolvemos el componente App con el cerebro de la sesión */}
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </StrictMode>,
 )
