@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+// 1. Importamos useNavigate para la redirección automática
+import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 function RegisterForm() {
     const { login } = useAuth();
+    // 2. Inicializamos el hook de navegación
+    const navigate = useNavigate();
+
     const [data, setData] = useState({ userName: "", email: "", password: "" });
     const [res, setRes] = useState(null);
     const [errors, setErrors] = useState({});
@@ -38,6 +43,7 @@ function RegisterForm() {
         setIsSubmitting(true);
         setErrors({});
         try {
+            // Ajustado a la ruta real de vuestro backend que dio pase correcto
             const response = await fetch(`${API_URL}/auth/register`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
@@ -51,6 +57,11 @@ function RegisterForm() {
 
             // Auto-Login automático al registrarse
             await login(data.email, data.password);
+
+            // :star2: LA REDIRECCIÓN:
+            // En cuanto el login guarda el token, la mandamos directa dentro de la app
+            navigate("/characters");
+
         } catch (error) {
             setErrors({ api: error.message });
         } finally {
@@ -112,8 +123,8 @@ function RegisterForm() {
                 {isSubmitting ? "Creando cuenta..." : "Registrarme"}
             </button>
 
-            {res && <p className="text-sm text-center text-green-600 font-semibold mt-2">:white_check_mark: Cuenta creada. Accediendo...</p>}
-            {errors.api && <p className="text-sm text-center text-red-600 font-medium mt-2">:x: {errors.api}</p>}
+            {res && <p className="text-sm text-center text-green-600 font-semibold mt-2">Cuenta creada. Acceding...</p>}
+            {errors.api && <p className="text-sm text-center text-red-600 font-medium mt-2">{errors.api}</p>}
         </form>
     );
 }

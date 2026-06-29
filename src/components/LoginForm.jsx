@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+// 1. Importamos useNavigate para poder redirigir por código
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
     const { login, user } = useAuth();
+    // 2. Inicializamos el hook de navegación
+    const navigate = useNavigate();
+
     const [data, setData] = useState({ email: "", password: "" });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,7 +38,13 @@ function LoginForm() {
         setIsSubmitting(true);
         setErrors({});
         try {
+            // Hacemos el login real contra el backend
             await login(data.email, data.password);
+
+            // :star2: LA REDIRECCIÓN REAL:
+            // Como vuestro App.jsx protege '/characters', mandamos al usuario directo allí.
+            navigate("/characters");
+
         } catch (error) {
             setErrors({ api: error.message });
         } finally {
@@ -42,7 +53,6 @@ function LoginForm() {
     }
 
     return (
-        /* mx-auto centra el form, max-w-md le da anchura de tarjeta, shadow-md le da profundidad */
         <form onSubmit={handleSubmit} className="mx-auto flex max-w-md flex-col gap-4 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
             <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Iniciar Sesión</h2>
 
@@ -74,7 +84,7 @@ function LoginForm() {
                 {errors.password && <span className="text-sm text-red-600 mt-0.5">{errors.password}</span>}
             </div>
 
-            {/* Botón dinámico con efecto hover y opacidad si está cargando */}
+            {/* Botón dinámico */}
             <button
                 type="submit"
                 disabled={isSubmitting}
@@ -84,8 +94,8 @@ function LoginForm() {
             </button>
 
             {/* Feedback en pantalla */}
-            {user && <p className="text-sm text-center text-green-600 font-semibold mt-2">:white_check_mark: ¡Bienvenido de nuevo! Sesión iniciada.</p>}
-            {errors.api && <p className="text-sm text-center text-red-600 font-medium mt-2">:x: {errors.api}</p>}
+            {user && <p className="text-sm text-center text-green-600 font-semibold mt-2">¡Bienvenido de nuevo! Sesión iniciada.</p>}
+            {errors.api && <p className="text-sm text-center text-red-600 font-medium mt-2">{errors.api}</p>}
         </form>
     );
 }
