@@ -28,7 +28,7 @@ function App() {
               <Route path='counter' element={<SearchField/>} />
               <Route path='register' element={<Register/>} />
               <Route path= 'login' element={<Login />} />
-               
+            
             </Route>
         </Routes>
       </ThemeContext>
