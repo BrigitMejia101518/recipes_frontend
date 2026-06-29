@@ -4,9 +4,11 @@ function Layout() {
     return (
         <div>
             <nav>
-                <NavLink to="/">Inicio</ NavLink> | 
+                <NavLink to="/">Inicio</ NavLink> | {" "}
                 <NavLink to="/characters">Recipes</ NavLink> | {" "}
-                <NavLink to="/about">Acerca de</ NavLink>
+                <NavLink to="/about">Acerca de</ NavLink> | {" "}
+                <NavLink to="/register">Registrate</NavLink> | {" "}
+                <NavLink to="/login">Login</NavLink>
             </nav>
             <main>
                 <Outlet />

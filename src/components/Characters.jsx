@@ -12,7 +12,7 @@ function Characters() {
             try {
                 setIsLoading(true)
                 setError(null)
-                const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+                const response = await fetch(`http://localhost:3000/api/Recipe/?page=${page}`)
                 if (!response.ok) throw new Error("No se pudo cargar el personaje")
                 const data = await response.json()
                 setCharacters(data.results)
