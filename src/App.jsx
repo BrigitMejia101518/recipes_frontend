@@ -39,7 +39,6 @@ function App() {
                   <Route path='recipes' element={<Recipes favorites={favorites} onToggleFavorite={toggleFavorite} />} />
                   <Route path='recipes/:id' element={<RecipesDetail favorites={favorites} onToggleFavorite={toggleFavorite} />} />
                   <Route path='about' element={<About />} />
-                  <Route path='counter' element={<SearchField/>} />
                   
               </Route>
             
