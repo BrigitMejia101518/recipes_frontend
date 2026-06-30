@@ -2,8 +2,8 @@ import './App.css'
 import { Routes, Route, NavLink, Outlet, } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
-import { Characters } from './components/Characters';
-import { CharactersDetail } from './pages/CharactersDetail';
+import { Recipes } from './components/Recipes';
+import { RecipesDetail } from './pages/RecipesDetail';
 import { Layout } from './pages/Layout';
 import { SearchField } from './components/Counter';
 import { ThemeContext } from './context/ThemeCounter';
@@ -17,6 +17,16 @@ function App() {
 
   const [theme, setTheme] = useState("light")
 
+  const [favorites, setFavorites] = useState([]);
+
+  const toggleFavorite = (id) => {
+    if (favorites.includes(id)) {
+      setFavorites(favorites.filter(favId => favId !== id));
+    } else {
+      setFavorites([...favorites, id]); 
+    }
+  };
+
   return (
     
       <ThemeContext value={{ theme, setTheme}}>
@@ -24,12 +34,14 @@ function App() {
               <Route path='register' element={<Register/>} />
               <Route path= 'login' element={<Login />} />
               <Route index element={<Home />} />
+
               <Route element={<ProtectedRoute />} >
-                  <Route path='characters' element={<Characters />} />
-                  <Route path='about' element={<About />} />
-                  <Route path='characters/:id' element={<CharactersDetail />} />
-                  <Route path='counter' element={<SearchField/>} />
                   <Route path='/' element={<Layout />}>
+                  <Route path='recipes' element={<Recipes favorites={favorites} onToggleFavorite={toggleFavorite} />} />
+                  <Route path='recipes/:id' element={<RecipesDetail favorites={favorites} onToggleFavorite={toggleFavorite} />} />
+                  <Route path='about' element={<About />} />
+                  <Route path='counter' element={<SearchField/>} />
+                  
               </Route>
             
             </Route>

@@ -43,7 +43,7 @@ function LoginForm() {
 
             // :star2: LA REDIRECCIÓN REAL:
             // Como vuestro App.jsx protege '/characters', mandamos al usuario directo allí.
-            navigate("/characters");
+            navigate("/recipes");
 
         } catch (error) {
             setErrors({ api: error.message });

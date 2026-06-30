@@ -60,7 +60,7 @@ function RegisterForm() {
 
             // :star2: LA REDIRECCIÓN:
             // En cuanto el login guarda el token, la mandamos directa dentro de la app
-            navigate("/characters");
+            navigate("/recipes");
 
         } catch (error) {
             setErrors({ api: error.message });

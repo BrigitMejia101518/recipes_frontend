@@ -5,7 +5,7 @@ function Layout() {
         <div>
             <nav>
                 <NavLink to="/">Inicio</ NavLink> | {" "}
-                <NavLink to="/characters">Recipes</ NavLink> | {" "}
+                <NavLink to="/recipes">Recipes</ NavLink> | {" "}
                 <NavLink to="/about">Acerca de</ NavLink> | {" "}
                 <NavLink to="/register">Registrate</NavLink> | {" "}
                 <NavLink to="/login">Login</NavLink>

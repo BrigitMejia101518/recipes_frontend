@@ -12,9 +12,8 @@ function ProtectedRoute() {
         );
     }
 
-    // Si hay token, pintamos las rutas de dentro (<Outlet />). Si no, rebotamos a la página de login.
-    // El 'replace' evita que el usuario pueda volver atrás con las flechas del navegador a la página privada.
-    return token ? <Outlet /> : <Navigate to="/auth/login" replace />;
+    
+    return token ? <Outlet /> : <Navigate to="/login" replace />;
 }
 
 export { ProtectedRoute };

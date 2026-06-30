@@ -7,7 +7,7 @@ function Header() {
 
     function handleLogout() {
         logout();              // Borra el token y limpia el estado global
-        navigate("/auth/login"); // Redirige a la zona pública
+        navigate("/login"); // Redirige a la zona pública
     }
 
     return (
@@ -20,13 +20,13 @@ function Header() {
                 {/* Renderizado condicional: si NO está logueado, ve esto */}
                 {!token ? (
                     <>
-                        <Link to="/auth/login" className="hover:text-purple-600 transition">Login</Link>
-                        <Link to="/auth/register" className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition">Registrate</Link>
+                        <Link to="/login" className="hover:text-purple-600 transition">Login</Link>
+                        <Link to="/register" className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition">Registrate</Link>
                     </>
                 ) : (
                     /* Renderizado condicional: si SÍ está logueado, ve esto */
                     <>
-                        <Link to="/perfil" className="hover:text-purple-600 transition">Mi Perfil</Link>
+                        <Link to="/profile" className="hover:text-purple-600 transition">Mi Perfil</Link>
                         <span className="text-sm bg-purple-50 text-purple-700 px-2 py-1 rounded border border-purple-200 font-semibold">
                             :bust_in_silhouette: {user?.userName}
                         </span>

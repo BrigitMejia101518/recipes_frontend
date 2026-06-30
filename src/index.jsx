@@ -9,7 +9,6 @@ import { AuthProvider } from './context/AuthContext'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      {/* 2. Envolvemos el componente App con el cerebro de la sesión */}
       <AuthProvider>
         <App />
       </AuthProvider>
