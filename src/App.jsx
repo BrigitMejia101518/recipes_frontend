@@ -5,7 +5,6 @@ import { About } from './pages/About';
 import { Recipes } from './components/Recipes';
 import { RecipesDetail } from './pages/RecipesDetail';
 import { Layout } from './pages/Layout';
-import { SearchField } from './components/Counter';
 import { ThemeContext } from './context/ThemeCounter';
 import { useState } from 'react';
 import { Register } from './pages/Register';
