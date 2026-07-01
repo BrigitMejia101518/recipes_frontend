@@ -33,22 +33,24 @@ El diseño del código respeta las buenas prácticas de React separando la lógi
 
 
 src/
-├── components/          # Componentes visuales reutilizables
-│   ├── Header.jsx       # Barra de navegación superior persistente
-│   ├── LoginForm.jsx    # Formulario controlado de inicio de sesión
-│   └── RegisterForm.jsx # Formulario con validación de datos de usuario
-├── pages/               # Vistas principales de la aplicación (Rutas)
-│   ├── Home.jsx         # Pantalla de bienvenida / Landing de la app
-│   ├── Recipes.jsx      # Catálogo y rejilla de recetas disponibles
-│   ├── RecipesDetail.jsx# Vista detallada de ingredientes y preparación
-│   ├── Favorites.jsx    # Sección exclusiva de platos guardados
-│   ├── Login.jsx        # Contenedor de la página de Login
-│   └── Register.jsx     # Contenedor de la página de Registro
-├── hooks/               # Custom Hooks globales
-│   └── useAuth.js       # Manejo global del estado de autenticación
-├── App.jsx              # Configuración del Enrutador principal y estados compartidos
-└── main.jsx             # Punto de entrada de la aplicación
-
+  ├── components/
+  │    ├── Header.jsx       -> Barra de navegación superior
+  │    ├── LoginForm.jsx    -> Formulario de inicio de sesión
+  │    └── RegisterForm.jsx -> Formulario de registro con validaciones
+  │
+  ├── pages/
+  │    ├── Home.jsx         -> Pantalla de bienvenida / Landing
+  │    ├── Recipes.jsx      -> Catálogo completo de recetas
+  │    ├── RecipesDetail.jsx-> Vista de ingredientes y preparación
+  │    ├── Favorites.jsx    -> Sección de platos favoritos
+  │    ├── Login.jsx        -> Página contenedora de Login
+  │    └── Register.jsx     -> Página contenedora de Registro
+  │
+  ├── hooks/
+  │    └── useAuth.js       -> Manejo global de la autenticación
+  │
+  ├── App.jsx               -> Enrutador principal y estados globales
+  └── main.jsx              -> Punto de entrada de la aplicación React
 
 ---
 ## ⚙️ Instalación y Configuración Local
