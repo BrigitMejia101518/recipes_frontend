@@ -31,7 +31,7 @@ Este proyecto ha sido desarrollado en **React** utilizando **Vite** como empaque
 
 El diseño del código respeta las buenas prácticas de React separando la lógica visual de las vistas lógicas principales:
 
-
+```text
 src/
   ├── components/
   │    ├── Header.jsx       -> Barra de navegación superior
@@ -51,6 +51,7 @@ src/
   │
   ├── App.jsx               -> Enrutador principal y estados globales
   └── main.jsx              -> Punto de entrada de la aplicación React
+```
 
 ---
 ## ⚙️ Instalación y Configuración Local
