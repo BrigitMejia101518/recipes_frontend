@@ -12,7 +12,7 @@ function Recipes({ favorites = [], onToggleFavorite }) {
             try {
                 setIsLoading(true)
                 setError(null)
-                const response = await fetch(`http://localhost:3000/api/recipes?page=${page}`)
+                const response = await fetch(`https://beyourchef.onrender.com/api/page=${page}`)
                 if (!response.ok) throw new Error("No se pudo cargar la lista de recetas")
                 const data = await response.json()
                 setRecipes(data)

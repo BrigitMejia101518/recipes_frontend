@@ -13,7 +13,7 @@ function RecipesDetail() {
         async function load() {
             try {
                 setIsLoading(true)
-                const response = await fetch(`http://localhost:3000/api/recipes/${id}`)
+                const response = await fetch(`https://beyourchef.onrender.com/api/${id}`)
 
                 if (!response.ok) throw new Error("Receta no encontrada")
                 const resData = await response.json()

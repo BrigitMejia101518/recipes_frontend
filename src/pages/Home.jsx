@@ -1,6 +1,21 @@
 function Home() {
-    return <h1 className="font-mono text-6xl text-red-500 text-center gap-8 py-16">BeYourChef</h1>
-            
+    return (
+        <div className="min-h-[80vh] flex flex-col items-center justify-center bg-gradient-to-b from-amber-50/50 to-white px-4">
+            <div className="text-center max-w-xl">
+                <h1 className="text-6xl md:text-7xl font-extrabold text-amber-600 tracking-tight mb-4 drop-shadow-sm">
+                    BeYourChef
+                </h1>
+                <p className="text-lg md:text-xl text-gray-500 font-medium"
+                >
+                    Explora, cocina y disfruta de tus recetas favoritas.
+                </p>
+                <div className="mt-8 text-3xl animate-bounce"
+                >
+                    🍳
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export {

@@ -30,9 +30,10 @@ function App() {
     
       <ThemeContext value={{ theme, setTheme}}>
           <Routes>
+              <Route index element={<Home />} />
               <Route path='register' element={<Register/>} />
               <Route path= 'login' element={<Login />} />
-              <Route index element={<Home />} />
+              
 
               <Route element={<ProtectedRoute />} >
                   <Route path='/' element={<Layout />}>
