@@ -33,7 +33,6 @@ function Layout() {
                 </NavLink>
             </nav>
 
-            {/* Mantenemos la etiqueta main del profesor */}
             <main className="flex-grow p-6">
                 <Outlet />
             </main>

@@ -13,7 +13,6 @@ function Favorites({ favorites = [], onToggleFavorite }) {
             try {
                 setIsLoading(true)
                 setError(null)
-                // Cargamos todas las recetas para poder filtrar cuáles son tus favoritas
                 const response = await fetch(`${API_URL}/recipes`);
                 if (!response.ok) throw new Error("No se pudieron cargar las recetas")
                 const data = await response.json()
@@ -36,7 +35,6 @@ function Favorites({ favorites = [], onToggleFavorite }) {
         return <p className="text-center text-red-500 font-medium p-8">⚠️ Error: {error}</p>;
     }
 
-    // Filtramos para quedarnos SOLO con las recetas cuyos IDs estén en tus favoritos
     const favoriteRecipes = recipes.filter(recipe => favorites.includes(recipe._id));
 
     return (
@@ -61,7 +59,6 @@ function Favorites({ favorites = [], onToggleFavorite }) {
                                 🍽️
                             </div>
 
-                            {/* El botón sigue funcionando para quitarla de favoritos desde aquí */}
                             <button 
                                 onClick={() => onToggleFavorite(recipe._id)}
                                 className="absolute top-3 right-3 bg-white/90 backdrop-blur-xs w-9 h-9 rounded-full shadow-xs text-base items-center justify-center flex cursor-pointer hover:scale-110 active:scale-95 transition-all z-10 border border-gray-100"
@@ -72,7 +69,7 @@ function Favorites({ favorites = [], onToggleFavorite }) {
                             <div className="p-6 flex flex-col flex-grow justify-between">
                                 <div className="mb-4">
                                     <Link to={`/recipes/${recipe._id}`}
-                                          className="text-xl font-bold text-gray-800 hover:text-amber-500 block transition-colors leading-snug line-clamp-2"
+                                        className="text-xl font-bold text-gray-800 hover:text-amber-500 block transition-colors leading-snug line-clamp-2"
                                     >
                                         {recipe.title}
                                     </Link>
