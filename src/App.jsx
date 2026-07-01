@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { Favorites } from './pages/Favorites';
 
 
 function App() {
@@ -40,7 +41,8 @@ function App() {
                   <Route path='recipes' element={<Recipes favorites={favorites} onToggleFavorite={toggleFavorite} />} />
                   <Route path='recipes/:id' element={<RecipesDetail favorites={favorites} onToggleFavorite={toggleFavorite} />} />
                   <Route path='about' element={<About />} />
-                  
+                  <Route path="/favorites" element={<Favorites favorites={favorites} onToggleFavorite={toggleFavorite} />} />
+
               </Route>
             
             </Route>
